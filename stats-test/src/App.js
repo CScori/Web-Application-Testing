@@ -62,12 +62,10 @@ function App() {
         </div>
 
         <div classNames="buttons">
-        <button onClick={() => setStrikes(countTest(strikes))}>Strikes</button>
-        <button onClick={() => setBalls(countTest(balls))}>Balls</button>
-        <button onClick={() => setFouls(countTest(fouls))}>Fouls</button>
-        <button onClick={() => setHits(countTest(hits))}>Hits</button>
-        
-
+        <button onClick={() => setStrikes(countTest(strike))}>Strikes</button>
+        <button onClick={() => setBalls(countTest(ball))}>Balls</button>
+        <button onClick={() => setFouls(countTest(foul))}>Fouls</button>
+        <button onClick={() => setHits(countTest(hit))}>Hits</button>
         </div>
       </section>
     </div>
