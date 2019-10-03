@@ -1,31 +1,73 @@
 import React, { useState } from 'react';
 
-//onClick={() => set}
+export const countTest = atBat => {
+  return atBat + 1;
+};
 
 function App() {
   const [balls, setBalls] = useState(0) //reset after 4  -> Set to zero after a hit
   const [strikes, setStrikes] = useState(0) //reset after 3  -> Set to zero after a hit
-  const [hit, setHit] = useState(0)
-  const [foul, setFoul] = useState(1) // increases strike by one -> after 2 fouls dont add to Strike count
-  const [batter, setBatter] = useState()
+  const [hits, setHits] = useState(0)
+  const [fouls, setFouls] = useState(0) // increases strike by one -> after 2 fouls dont add to Strike count
+  
 
+
+  const strike = () => {
+    if (strikes < 2) {
+      setStrikes(strikes + 1);
+    } else if (strikes === 3) {
+      setStrikes(0);
+      setBalls(0);
+    } 
+  };
+
+  const ball = () => {
+    if (balls < 4) {
+      setBalls(balls + 1);
+    } else if (balls === 3) {
+      setStrikes(0);
+      setBalls(0);
+    } 
+  };
+
+  const foul = () => {
+    if (fouls < 2) {
+      setStrikes(fouls + 1);
+    } else if (fouls === 2) {
+      setFouls(fouls)
+    } 
+  };
+
+  const hit = () => {
+    if (hits < 1) {
+      setHits(hits + 1);
+    } else if (strikes === 3) {
+      setStrikes(0);
+      setBalls(0);
+      setFouls(0);
+    } 
+  };
   return (
+
     <div className="App">
 
       <section className="batter">
 
         <div className="display">
+          <p>Hitter At Bat Stats</p>
           <div className="strikes">Strikes: {strikes}</div>
           <div className="balls">Balls: {balls}</div>
-          <div className="hits">Hits: {hit}</div>
+          <div className="balls">Fouls: {fouls}</div>
+          <div className="hits">Hits: {hits}</div>
         </div>
 
-        <div className="buttons">
-          <button onClick={() => setStrikes(strikes + 1 <= 3)} >Strike</button>
-          <button onClick={() => setBalls(balls + 1 <= 4)}>Ball</button>
-          <button onClick={() => setFoul(strikes + 1 <= 2)}>Foul</button>
-          <button onClick={() => setHit(setBalls(0), setStrikes(0))}>Hit</button>
-          <button onClick={() => setBatter(setBalls(0), setStrikes(0), setFoul(0))}>New Batter</button>
+        <div classNames="buttons">
+        <button onClick={() => setStrikes(countTest(strikes))}>Strikes</button>
+        <button onClick={() => setBalls(countTest(balls))}>Balls</button>
+        <button onClick={() => setFouls(countTest(fouls))}>Fouls</button>
+        <button onClick={() => setHits(countTest(hits))}>Hits</button>
+        
+
         </div>
       </section>
     </div>
