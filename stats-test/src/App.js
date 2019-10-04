@@ -1,4 +1,7 @@
 import React from 'react';
+import Display from './Display';
+import Dashboard from './Dash';
+
 
 const ballCount = (balls) => {
   if (balls < 3) {
@@ -59,7 +62,10 @@ class App extends React.Component{
   }
   render() {
     return(
-      <div>TEST</div>
+      <div>
+        <Display count={this.state}/>
+        <Dashboard updateCount={this.updateCount}/>
+      </div>
 
     )
   }
