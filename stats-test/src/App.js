@@ -8,9 +8,29 @@ const ballCount = (balls) => {
   }
 }
 
+const strikeCount = (strikes) => {
+  if (strikes < 2) {
+    return strikes + 1;
+  } else {
+    return 0
+  }
+}
+
+const hit = () => {
+  return 0
+}
+
+const fouls = (strikes) => {
+  if (strikes < 2) {
+    return strikes + 1;
+  } else {
+    return 2
+  }
+}
+
 class App extends React.Component{
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state ={
       balls: 0,
       strikes: 0
