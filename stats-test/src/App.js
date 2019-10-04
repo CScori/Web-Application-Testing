@@ -31,9 +31,9 @@ const fouls = (strikes) => {
   }
 }
 
-updateCount = buttonName => {
+updateCount = (buttonName) => {
   if (buttonName === "ball") {
-    this.ListeningStateChangedEvent({
+    this.setState({
       balls: ballCount(this.state.balls)
     })
   } else if (buttonName === "strike") {
