@@ -3,7 +3,7 @@ import Display from './Display';
 import Dashboard from './Dash';
 
 
-const ballCount = (balls) => {
+export const ballCount = (balls) => {
   if (balls < 3) {
     return balls + 1;
   } else {
@@ -11,7 +11,7 @@ const ballCount = (balls) => {
   }
 }
 
-const strikeCount = (strikes) => {
+export const strikeCount = (strikes) => {
   if (strikes < 2) {
     return strikes + 1;
   } else {
@@ -19,11 +19,11 @@ const strikeCount = (strikes) => {
   }
 }
 
-const hits = () => {
+export const hits = () => {
   return 0
 }
 
-const fouls = (strikes) => {
+export const fouls = (strikes) => {
   if (strikes < 2) {
     return strikes + 1;
   } else {
@@ -32,21 +32,21 @@ const fouls = (strikes) => {
 }
 
 updateCount = (buttonName) => {
-  if (buttonName === "ball") {
+  if (buttonName === 'ball') {
     this.setState({
       balls: ballCount(this.state.balls)
-    })
-  } else if (buttonName === "strike") {
-    this.setState({
-      strikes: strikeCount(this.state.strikes)
-    })
-  } else if (buttonName === "hit") {
+    })    
+  } else if (buttonName === 'strike') {
+      this.setState({
+        strikes: strikeCount(this.state.strikes)
+      })  
+  } else if (buttonName === 'hit') {
     this.setState({
       balls: hits(),
       strikes: hits()
     })
   } else {
-    this. setState({
+    this.setState({
       strikes: fouls(this.state.strikes)
     })
   }
