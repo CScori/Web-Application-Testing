@@ -16,7 +16,7 @@ const strikeCount = (strikes) => {
   }
 }
 
-const hit = () => {
+const hits = () => {
   return 0
 }
 
@@ -25,6 +25,27 @@ const fouls = (strikes) => {
     return strikes + 1;
   } else {
     return 2
+  }
+}
+
+updateCount = buttonName => {
+  if (buttonName === "ball") {
+    this.ListeningStateChangedEvent({
+      balls: ballCount(this.state.balls)
+    })
+  } else if (buttonName === "strike") {
+    this.setState({
+      strikes: strikeCount(this.state.strikes)
+    })
+  } else if (buttonName === "hit") {
+    this.setState({
+      balls: hits(),
+      strikes: hits()
+    })
+  } else {
+    this. setState({
+      strikes: fouls(this.state.strikes)
+    })
   }
 }
 
